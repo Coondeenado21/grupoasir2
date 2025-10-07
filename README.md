@@ -9,7 +9,7 @@ Repositorio para el trabajo de ASIR
 
 ## Dataset elegido
 **Linux Server Metrics Dataset**  
-Fuente: [Kaggle](https://www.kaggle.com/datasets/boltzmannbrain/linux-server-metrics)  
+Fuente: [Kaggle]([https://www.kaggle.com/datasets/boltzmannbrain/linux-server-metrics](https://www.kaggle.com))  
 Descripción: contiene métricas de CPU, memoria y red tomadas de servidores Linux para analizar el rendimiento del sistema.
 
 ## Objetivo
