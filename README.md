@@ -1,6 +1,6 @@
-# GRUPOASIR2
+# GrupoAsir2
 Repositorio para el trabajo de ASIR
-# Análisis de Datos del Sistema con NumPy
+## Análisis de Datos del Sistema con NumPy
 
 ## Miembros del grupo
 - Daniel Conde
