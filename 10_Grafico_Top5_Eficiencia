@@ -1,0 +1,18 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("../input/database/dataset_futbol_reales.csv")
+sns.set_style("whitegrid")
+
+df['Eficiencia'] = df['Goles'] + df['Asistencias']
+plt.figure(figsize=(12, 6))
+top_eficiencia = df.sort_values(by='Eficiencia', ascending=False).head(5)
+sns.barplot(x='Jugador', y='Eficiencia', data=top_eficiencia, hue='Posicion', dodge=False, palette='cool')
+plt.title('10. Top 5 Jugadores más Eficientes (Goles + Asistencias)', fontsize=16)
+plt.xlabel('Jugador', fontsize=12)
+plt.ylabel('Eficiencia (Goles + Asistencias)', fontsize=12)
+plt.xticks(rotation=45, ha='right')
+plt.legend(title='Posición')
+plt.tight_layout()
+plt.savefig('10_Top5_Eficiencia.png')
