@@ -1,0 +1,13 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("../input/database/dataset_futbol_reales.csv")
+sns.set_style("whitegrid")
+
+plt.figure(figsize=(10, 8))
+corr_matrix = df[['Goles', 'Asistencias', 'Pases', 'Regates', 'Entradas']].corr()
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=.5)
+plt.title('6. Mapa de Calor de Correlación de Estadísticas', fontsize=16)
+plt.tight_layout()
+plt.savefig('6_Mapa_Calor_Correlacion.png')
