@@ -1,0 +1,14 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("../input/database/dataset_futbol_reales.csv")
+sns.set_style("whitegrid")
+
+plt.figure(figsize=(10, 6))
+sns.violinplot(x='Posicion', y='Regates', data=df, inner='quartile', palette='PuOr')
+plt.title('8. Distribución de Regates (Dribbles) por Posición (Violin Plot)', fontsize=16)
+plt.xlabel('Posición', fontsize=12)
+plt.ylabel('Regates', fontsize=12)
+plt.tight_layout()
+plt.savefig('8_Violin_Regates_Posicion.png')
