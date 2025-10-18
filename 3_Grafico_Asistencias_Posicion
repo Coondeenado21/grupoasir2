@@ -1,0 +1,15 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("../input/database/dataset_futbol_reales.csv")
+sns.set_style("whitegrid")
+
+plt.figure(figsize=(10, 6))
+avg_asistencias = df.groupby('Posicion')['Asistencias'].mean().sort_values(ascending=False)
+sns.barplot(x=avg_asistencias.index, y=avg_asistencias.values, palette='plasma')
+plt.title('3. Media de Asistencias por Posición', fontsize=16)
+plt.xlabel('Posición', fontsize=12)
+plt.ylabel('Media de Asistencias', fontsize=12)
+plt.tight_layout()
+plt.savefig('3_Media_Asistencias_Posicion.png')
