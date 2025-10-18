@@ -10,7 +10,7 @@ Repositorio para el trabajo de ASIR
 ## Dataset elegido
 **Linux Server Metrics Dataset**  
 Fuente: [Kaggle](https://www.kaggle.com)  
-Descripción: contiene métricas de CPU, memoria y red tomadas de servidores Linux para analizar el rendimiento del sistema.
+Descripción: Ejemplificar datos de rendimiento en fútbol para practicar análisis y visualización, mostrando cómo varían las estadísticas clave según la posición del jugador.
 
 ## Objetivo
 Analizar los datos del rendimiento del sistema utilizando **NumPy** para cálculos numéricos y **Matplotlib / Seaborn** para visualización.
@@ -23,6 +23,6 @@ Analizar los datos del rendimiento del sistema utilizando **NumPy** para cálcul
 - Seaborn  
 
 ## Resultados esperados
-- Estadísticas descriptivas con NumPy.  
-- Gráficos de uso de CPU, memoria y red.  
-- Correlaciones entre variables de rendimiento.  
+- Práctica de análisis de datos de rendimiento. 
+- Visualizar estadísticas según la posición de juego.  
+- Estudiar correlaciones entre métricas ofensivas y defensivas.
