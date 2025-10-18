@@ -1,0 +1,15 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("../input/database/dataset_futbol_reales.csv")
+sns.set_style("whitegrid")
+
+plt.figure(figsize=(8, 8))
+sns.scatterplot(x='Goles', y='Asistencias', hue='Posicion', data=df, s=100, palette='Set1')
+plt.title('4. Goles vs. Asistencias por Jugador (Scatter Plot)', fontsize=16)
+plt.xlabel('Goles', fontsize=12)
+plt.ylabel('Asistencias', fontsize=12)
+plt.legend(title='Posición')
+plt.tight_layout()
+plt.savefig('4_Scatter_Goles_Asistencias.png')
