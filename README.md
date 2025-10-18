@@ -13,7 +13,7 @@ Fuente: [Kaggle](https://www.kaggle.com)
 Descripción: Ejemplificar datos de rendimiento en fútbol para practicar análisis y visualización, mostrando cómo varían las estadísticas clave según la posición del jugador.
 
 ## Objetivo
-Analizar los datos del rendimiento del sistema utilizando **NumPy** para cálculos numéricos y **Matplotlib / Seaborn** para visualización.
+El objetivo principal de este dataset sintético es servir como una base de datos de ejemplo para la práctica de análisis y visualización de datos, permitiendo estudiar cómo las estadísticas de rendimiento (goles, asistencias, pases, regates y entradas) varían y se correlacionan entre las diferentes posiciones de juego (Portero, Defensa, Mediocampista y Delantero) en el fútbol.
 
 ## Tecnologías
 - Python 3.x  
