@@ -16,7 +16,7 @@ Descripción: Ejemplificar datos de rendimiento en fútbol para practicar análi
 El objetivo principal de este dataset sintético es servir como una base de datos de ejemplo para la práctica de análisis y visualización de datos, permitiendo estudiar cómo las estadísticas de rendimiento (goles, asistencias, pases, regates y entradas) varían y se correlacionan entre las diferentes posiciones de juego (Portero, Defensa, Mediocampista y Delantero) en el fútbol.
 
 ## Tecnologías
-- Python 3.x  
+- Python
 - NumPy  
 - Pandas  
 - Matplotlib  
