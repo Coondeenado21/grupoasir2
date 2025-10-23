@@ -1,0 +1,97 @@
+import numpy as np
+import pandas as pd
+np.random.seed(42)
+
+jugadores = np.array([
+    "Thibaut Courtois", "Virgil van Dijk", "John Stones", "Andrew Robertson", "Kyle Walker",
+    "Rodri", "Luka Modric", "Kevin De Bruyne", "Pedri", "Bruno Fernandes",
+    "Kylian Mbappé", "Erling Haaland", "Vinícius Jr", "Lionel Messi", "Mohamed Salah",
+    "Harry Kane", "Robert Lewandowski", "Ousmane Dembélé", "Jude Bellingham", "Bukayo Saka",
+    "Marc-André ter Stegen", "Antonio Rüdiger", "Ronald Araújo", "Theo Hernández", "Achraf Hakimi",
+    "Declan Rice", "Federico Valverde", "Bernardo Silva", "Gavi", "Martin Ødegaard",
+    "Lautaro Martínez", "Olivier Giroud", "Rafael Leão", "Neymar Jr", "Antoine Griezmann",
+    "Cristiano Ronaldo", "João Félix", "Khvicha Kvaratskhelia", "Phil Foden", "Jadon Sancho",
+    "Manuel Neuer", "Rúben Dias", "Marquinhos", "Jules Koundé", "João Cancelo",
+    "Casemiro", "Toni Kroos", "Mason Mount", "Enzo Fernández", "Florian Wirtz",
+    "Darwin Núñez", "Alexander Isak", "Victor Osimhen", "Gabriel Jesus", "Lautaro Martínez"
+])
+n = jugadores.size
+
+porteros = np.array(["Thibaut Courtois", "Marc-André ter Stegen", "Manuel Neuer"])
+defensas = np.array(["Virgil van Dijk", "John Stones", "Andrew Robertson", "Kyle Walker",
+                     "Antonio Rüdiger", "Ronald Araújo", "Theo Hernández", "Achraf Hakimi",
+                     "Rúben Dias", "Marquinhos", "Jules Koundé", "João Cancelo"])
+medios   = np.array(["Rodri", "Luka Modric", "Kevin De Bruyne", "Pedri", "Bruno Fernandes",
+                     "Declan Rice", "Federico Valverde", "Bernardo Silva", "Gavi", "Martin Ødegaard",
+                     "Casemiro", "Toni Kroos", "Mason Mount", "Enzo Fernández", "Florian Wirtz"])
+
+pos_codes = np.full(n, 3, dtype=int)
+pos_codes[np.isin(jugadores, porteros)] = 0
+pos_codes[np.isin(jugadores, defensas)] = 1
+pos_codes[np.isin(jugadores, medios)]   = 2
+
+pos_labels_map = np.array(["Portero", "Defensa", "Mediocampista", "Delantero"])
+pos_labels = pos_labels_map[pos_codes]
+
+
+csv_path = "1.csv"
+try:
+    df = pd.read_csv(csv_path)
+    # Aseguramos que la columna Jugador y Posicion correspondan a nuestro vector actual
+    # (no tocamos los números ya existentes en el CSV).
+    df["Jugador"] = jugadores
+    df["Posicion"] = pos_labels
+except FileNotFoundError:
+
+    goles      = np.empty(n, dtype=int)
+    asist      = np.empty(n, dtype=int)
+    pases      = np.empty(n, dtype=int)
+    regates    = np.empty(n, dtype=int)
+    entradas   = np.empty(n, dtype=int)
+
+    m_portero = pos_codes == 0
+    m_defensa = pos_codes == 1
+    m_medio   = pos_codes == 2
+    m_dela    = pos_codes == 3
+
+    # Portero
+    goles[m_portero]    = np.random.randint(0, 1,  m_portero.sum())
+    asist[m_portero]    = np.random.randint(0, 1,  m_portero.sum())
+    pases[m_portero]    = np.random.randint(10, 30, m_portero.sum())
+    regates[m_portero]  = np.random.randint(0, 1,  m_portero.sum())
+    entradas[m_portero] = np.random.randint(20, 60, m_portero.sum())
+
+    # Defensa
+    goles[m_defensa]    = np.random.randint(0, 5,  m_defensa.sum())
+    asist[m_defensa]    = np.random.randint(0, 5,  m_defensa.sum())
+    pases[m_defensa]    = np.random.randint(30, 60, m_defensa.sum())
+    regates[m_defensa]  = np.random.randint(5, 15, m_defensa.sum())
+    entradas[m_defensa] = np.random.randint(20, 50, m_defensa.sum())
+
+    # Mediocampista
+    goles[m_medio]      = np.random.randint(2, 10,  m_medio.sum())
+    asist[m_medio]      = np.random.randint(3, 10,  m_medio.sum())
+    pases[m_medio]      = np.random.randint(40, 90, m_medio.sum())
+    regates[m_medio]    = np.random.randint(10, 25, m_medio.sum())
+    entradas[m_medio]   = np.random.randint(10, 25, m_medio.sum())
+
+    # Delantero
+    goles[m_dela]       = np.random.randint(10, 40, m_dela.sum())
+    asist[m_dela]       = np.random.randint(5, 15,  m_dela.sum())
+    pases[m_dela]       = np.random.randint(20, 50, m_dela.sum())
+    regates[m_dela]     = np.random.randint(15, 35, m_dela.sum())
+    entradas[m_dela]    = np.random.randint(0, 10,  m_dela.sum())
+
+    df = pd.DataFrame({
+        "Jugador": jugadores,
+        "Goles": goles,
+        "Asistencias": asist,
+        "Pases": pases,
+        "Regates": regates,
+        "Entradas": entradas,
+        "Posicion": pos_labels
+    })
+
+df.to_csv(csv_path, index=False)
+print("Dataset guardado como '1.csv'")
+df.head()
