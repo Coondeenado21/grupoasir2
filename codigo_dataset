@@ -34,7 +34,7 @@ pos_labels_map = np.array(["Portero", "Defensa", "Mediocampista", "Delantero"])
 pos_labels = pos_labels_map[pos_codes]
 
 
-csv_path = "1.csv"
+csv_path = "dataset_futbol_reales.csv"
 try:
     df = pd.read_csv(csv_path)
     # Aseguramos que la columna Jugador y Posicion correspondan a nuestro vector actual
@@ -93,5 +93,5 @@ except FileNotFoundError:
     })
 
 df.to_csv(csv_path, index=False)
-print("Dataset guardado como '1.csv'")
+print("Dataset guardado como 'dataset_futbol_reales.csv'")
 df.head()
